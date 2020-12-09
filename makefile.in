@@ -1,0 +1,13 @@
+OBJS = steam_wrapper.cpp
+HEADERS = steam_wrapper.h
+CFLAGS = -std=c++17 -Wall -shared -fPIC
+STEAMINC = -I$(STEAMWORKS_ROOT)/sdk/public/
+DLLNAME = $(LIBNAME)$(DLIBEXT)
+
+all: $(DLLNAME)
+
+$(DLLNAME): $(OBJS) $(HEADERS)
+	$(CC) $(CFLAGS) $(STEAMINC) $(OBJS) -o $(DLLNAME) -Wl,$(STEAMDLLPATH),$(STEAMDLL)
+
+clean:
+	rm -rf *.o $(DLLNAME)

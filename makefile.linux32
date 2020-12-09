@@ -1,0 +1,7 @@
+LIBNAME = libsteam_wrapper32
+CC := g++ -m32
+DLIBEXT = .so
+STEAMDLL = -lsteam_api
+STEAMDLLPATH = -L$(STEAMWORKS_ROOT)/sdk/redistributable_bin/linux32/
+
+include makefile.in

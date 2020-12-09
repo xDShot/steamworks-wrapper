@@ -1,0 +1,7 @@
+LIBNAME = steam_wrapper32
+CC := i686-w64-mingw32-g++ -m32
+DLIBEXT = .dll
+STEAMDLL = -lsteam_api
+STEAMDLLPATH = -L$(STEAMWORKS_ROOT)/sdk/redistributable_bin/
+
+include makefile.in
