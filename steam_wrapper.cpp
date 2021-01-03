@@ -950,6 +950,26 @@ extern "C" void *LobbyDataUpdated_pCallback_m_ulSteamIDLobby(void *pCallback)
 }
 
 //xd stuff
+extern "C" bool c_SteamController_Init()
+{
+	return SteamController()->Init();
+}
+
+extern "C" InputHandle_t c_SteamController_GetControllerForGamepadIndex(int nIndex)
+{
+	return SteamController()->GetControllerForGamepadIndex(nIndex);
+}
+
+extern "C" void c_SteamController_SetLEDColor( InputHandle_t inputHandle, uint8 nColorR, uint8 nColorG, uint8 nColorB, unsigned int nFlags )
+{
+	SteamController()->SetLEDColor( inputHandle, nColorR, nColorG, nColorB, nFlags );
+}
+
+extern "C" int c_SteamController_GetInputTypeForHandle( uint64_t inputHandle )
+{
+	return SteamController()->GetInputTypeForHandle(inputHandle);
+}
+
 extern "C" bool c_SteamInput_Init()
 {
 	return SteamInput()->Init();
@@ -963,4 +983,9 @@ extern "C" InputHandle_t c_SteamInput_GetControllerForGamepadIndex(int nIndex)
 extern "C" void c_SteamInput_SetLEDColor( InputHandle_t inputHandle, uint8 nColorR, uint8 nColorG, uint8 nColorB, unsigned int nFlags )
 {
 	SteamInput()->SetLEDColor( inputHandle, nColorR, nColorG, nColorB, nFlags );
+}
+
+extern "C" int c_SteamInput_GetInputTypeForHandle( uint64_t inputHandle )
+{
+	return SteamInput()->GetInputTypeForHandle(inputHandle);
 }
